@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function callback(command, argument) {
+        var jsonString = JSON.stringify(argument);
+        alert(command + ':' + jsonString);
+    }
+    
+    function GetSomething() {
+        window.appJavaScriptBridge.setCallback(callback);
+        window.appJavaScriptBridge.callNative('GetSomething', {test:123456789} );
+    }
+    
+    </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <style type="text/css">
+      body{
+          font-size:8px;
+      }
+      button{
+          width:200px;
+          height:40px;
+          margin:10px auto;
+          font-size:1.0rem;
+          display: block;
+      }
+  </style>
+</head>
+<body>
+    <button type="button" onclick="GetSomething()">GetSomething</button>
+</body>
+</html>
