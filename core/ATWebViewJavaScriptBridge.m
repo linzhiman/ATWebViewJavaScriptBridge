@@ -1,9 +1,9 @@
 //
 //  ATWebViewJavaScriptBridge.m
-//  yyfe
+//  apptemplate
 //
 //  Created by linzhiman on 16/3/30.
-//  Copyright © 2016年 yy.com. All rights reserved.
+//  Copyright © 2016年 apptemplate. All rights reserved.
 //
 
 #import "ATWebViewJavaScriptBridge.h"
