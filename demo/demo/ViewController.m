@@ -27,6 +27,7 @@
     
     NSURL *testUrl = [ATWebViewJavaScriptBridgeTestAction testUrl];
     [_webView loadRequest:[NSURLRequest requestWithURL:testUrl]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
