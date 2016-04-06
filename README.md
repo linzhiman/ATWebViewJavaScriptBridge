@@ -50,5 +50,6 @@
     NSURL *testUrl = [ATWebViewJavaScriptBridgeTestAction testUrl];  
     [_webView loadRequest:[NSURLRequest requestWithURL:testUrl]];  
 
-
+## 备注
+1、可将.js代码放在.m中，省去读取文件。
 
