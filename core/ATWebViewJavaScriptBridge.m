@@ -118,7 +118,7 @@
     [_actions addObject:action];
 }
 
-- (void)callJavaScriptWithCommand:(NSString *)command args:(NSDictionary *)argument
+- (void)callJavaScriptWithCommand:(NSString *)command argument:(NSDictionary *)argument
 {
     NSData *data = [NSJSONSerialization dataWithJSONObject:argument options:NSJSONWritingPrettyPrinted error:nil];
     NSString *argumentString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -144,7 +144,7 @@
 - (void)actionWithArgument:(NSDictionary *)argument
 {
     if (self.bridge) {
-        [self.bridge callJavaScriptWithCommand:@"onGetSomething" args:@{@"argument":argument}];
+        [self.bridge callJavaScriptWithCommand:@"onGetSomething" argument:@{@"argument":argument}];
     }
 }
 

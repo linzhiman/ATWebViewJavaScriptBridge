@@ -40,7 +40,7 @@
 @interface ATWebViewJavaScriptBridge : NSObject<UIWebViewDelegate>
 
 - (void)registerAction:(id<ATWebViewJavaScriptBridgeAction>)action;
-- (void)callJavaScriptWithCommand:(NSString *)command args:(NSDictionary *)argument;
+- (void)callJavaScriptWithCommand:(NSString *)command argument:(NSDictionary *)argument;
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(id<UIWebViewDelegate>)webViewDelegate;
 
