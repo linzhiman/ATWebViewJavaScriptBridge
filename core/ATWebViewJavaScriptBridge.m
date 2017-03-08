@@ -8,6 +8,7 @@
 
 #import "ATWebViewJavaScriptBridge.h"
 #import "ATHttpUtils.h"
+#import "NSDictionary+JSONSafeGet.h"
 
 #define CheckCurrentWebView(returnValue) \
     if (webView != _webView) { return returnValue; }
@@ -54,6 +55,8 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     CheckCurrentWebView()
+    
+    [self insertAppServiceScript];
     
     if ([_webViewDelegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
         [_webViewDelegate webViewDidStartLoad:webView];
@@ -118,11 +121,11 @@
     [_actions addObject:action];
 }
 
-- (void)callJavaScriptWithCommand:(NSString *)command argument:(NSDictionary *)argument
+- (void)callJavaScriptWithCommand:(NSString *)command argument:(NSDictionary *)argument callback:(NSString *)callback
 {
     NSData *data = [NSJSONSerialization dataWithJSONObject:argument options:NSJSONWritingPrettyPrinted error:nil];
     NSString *argumentString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"window.appJavaScriptBridge.callJavaScript('%@', %@)", command, argumentString]];
+    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"window.appJavaScriptBridge.callJavaScript('%@', %@, '%@')", command, argumentString, callback ? callback : @""]];
 }
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(id<UIWebViewDelegate>)webViewDelegate
@@ -144,7 +147,8 @@
 - (void)actionWithArgument:(NSDictionary *)argument
 {
     if (self.bridge) {
-        [self.bridge callJavaScriptWithCommand:@"onGetSomething" argument:@{@"argument":argument}];
+        NSString *callback = [argument stringSafeGet:@"callback"];
+        [self.bridge callJavaScriptWithCommand:@"onGetSomething" argument:@{@"argument":argument} callback:callback];
     }
 }
 

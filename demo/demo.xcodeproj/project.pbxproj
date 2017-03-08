@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC394C6F1E70129F00D24CEF /* NSDictionary+JSONSafeGet.m in Sources */ = {isa = PBXBuildFile; fileRef = DC394C6E1E70129F00D24CEF /* NSDictionary+JSONSafeGet.m */; };
 		DC65787C1CAD0C1100679FD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC65787B1CAD0C1100679FD3 /* main.m */; };
 		DC65787F1CAD0C1100679FD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC65787E1CAD0C1100679FD3 /* AppDelegate.m */; };
 		DC6578821CAD0C1100679FD3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6578811CAD0C1100679FD3 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC394C6D1E70129F00D24CEF /* NSDictionary+JSONSafeGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONSafeGet.h"; sourceTree = "<group>"; };
+		DC394C6E1E70129F00D24CEF /* NSDictionary+JSONSafeGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONSafeGet.m"; sourceTree = "<group>"; };
 		DC6578771CAD0C1100679FD3 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC65787B1CAD0C1100679FD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC65787D1CAD0C1100679FD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				DC6578931CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.html */,
 				DC6578941CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.js */,
 				DC6578951CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.m */,
+				DC394C6D1E70129F00D24CEF /* NSDictionary+JSONSafeGet.h */,
+				DC394C6E1E70129F00D24CEF /* NSDictionary+JSONSafeGet.m */,
 			);
 			name = core;
 			path = ../core;
@@ -178,6 +183,7 @@
 			files = (
 				DC65789B1CAD12E200679FD3 /* ATHttpUtils.m in Sources */,
 				DC6578981CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.m in Sources */,
+				DC394C6F1E70129F00D24CEF /* NSDictionary+JSONSafeGet.m in Sources */,
 				DC6578821CAD0C1100679FD3 /* ViewController.m in Sources */,
 				DC65787F1CAD0C1100679FD3 /* AppDelegate.m in Sources */,
 				DC65787C1CAD0C1100679FD3 /* main.m in Sources */,
@@ -290,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linzhiman.demo;
@@ -301,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linzhiman.demo;

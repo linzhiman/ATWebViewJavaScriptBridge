@@ -11,18 +11,16 @@
 /*
  App与WebView页面交互规范
  1、App在WebView注入一个对象window.appJavaScriptBridge。
- 2、页面JavaScript在调用Native方法前需设置回调函数
-    window.appJavaScriptBridge.setCallback(callback)；
-    其中callback为 function callback(command, argument)，函数名可自定义；
-    callback函数会存放在window.appJavaScriptBridge.callback
- 3、页面JavaScript调用Native
+ 2、页面JavaScript调用Native
     window.appJavaScriptBridge.callNative(command, argument);
- 4、Native调用页面JavaScript
-    window.appJavaScriptBridge.callback(command, argument);
- 5、参数说明
+    如果需要App回调，需将callback函数挂在window.appJavaScriptBridge，函数名自定义，如callbackName，并在argument中添加字段'callback':'callbackName'；
+    其中callback为 function callbackName(command, argument)；
+ 3、Native调用页面JavaScript
+    window.appJavaScriptBridge.callbackName(command, argument);
+ 4、参数说明
     command为 String，标记需要调用的方法；
-    argument为 JSON对象，调用方法需要的参数；
- 6、示例
+    argument为 String，内容为JSON对象，调用方法需要的参数；App回调时为JSON对象；
+ 5、示例
     ATWebViewJavaScriptBridge.html
  */
 
@@ -40,7 +38,7 @@
 @interface ATWebViewJavaScriptBridge : NSObject<UIWebViewDelegate>
 
 - (void)registerAction:(id<ATWebViewJavaScriptBridgeAction>)action;
-- (void)callJavaScriptWithCommand:(NSString *)command argument:(NSDictionary *)argument;
+- (void)callJavaScriptWithCommand:(NSString *)command argument:(NSDictionary *)argument callback:(NSString *)callback;
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(id<UIWebViewDelegate>)webViewDelegate;
 

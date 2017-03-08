@@ -2,14 +2,17 @@
 <html>
 <head>
     <script>
-    function callback(command, argument) {
+    function GetSomethingCallback(command, argument) {
         var jsonString = JSON.stringify(argument);
         alert(command + ':' + jsonString);
     }
     
     function GetSomething() {
-        window.appJavaScriptBridge.setCallback(callback);
-        window.appJavaScriptBridge.callNative('GetSomething', {test:123456789} );
+        window.appJavaScriptBridge.GetSomethingCallback = GetSomethingCallback;
+        
+        var argument = {'test':123456789,'callback':'GetSomethingCallback'}
+        var jsonString = JSON.stringify(argument);
+        window.appJavaScriptBridge.callNative('GetSomething', jsonString);
     }
     
     </script>
