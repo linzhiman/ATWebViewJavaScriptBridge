@@ -101,10 +101,11 @@
         NSString *command = [content substringToIndex:firstSlashRange.location];
         NSString *argumentString = [content substringFromIndex:firstSlashRange.location + firstSlashRange.length];
         NSDictionary *argument = [NSJSONSerialization JSONObjectWithData:[argumentString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+        NSString *callback = [argument stringSafeGet:@"callback"];
         
         for (id<ATWebViewJavaScriptBridgeAction> action in _actions) {
             if ([command isEqualToString:[action command]]) {
-                [action actionWithArgument:argument];
+                [action actionWithArgument:argument callback:callback];
             }
         }
         return YES;
@@ -144,10 +145,9 @@
     return @"GetSomething";
 }
 
-- (void)actionWithArgument:(NSDictionary *)argument
+- (void)actionWithArgument:(NSDictionary *)argument callback:(NSString *)callback
 {
     if (self.bridge) {
-        NSString *callback = [argument stringSafeGet:@"callback"];
         [self.bridge callJavaScriptWithCommand:@"onGetSomething" argument:@{@"argument":argument} callback:callback];
     }
 }

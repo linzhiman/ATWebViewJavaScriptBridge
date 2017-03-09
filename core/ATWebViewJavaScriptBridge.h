@@ -31,7 +31,7 @@
 @property (nonatomic, weak) ATWebViewJavaScriptBridge *bridge;
 
 - (NSString *)command;
-- (void)actionWithArgument:(NSDictionary *)argument;
+- (void)actionWithArgument:(NSDictionary *)argument callback:(NSString *)callback;
 
 @end
 
