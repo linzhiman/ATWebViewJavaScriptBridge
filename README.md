@@ -23,6 +23,10 @@
 5、示例  
 
     ATWebViewJavaScriptBridge.html  
+    
+6、版本兼容   
+
+    如果command不支持，则回调页面，argument为{'errorCode':100,'errorMessage':'unknown command'};
 
 ## 使用
 
@@ -48,6 +52,4 @@
     NSURL *testUrl = [ATWebViewJavaScriptBridgeTestAction testUrl];  
     [_webView loadRequest:[NSURLRequest requestWithURL:testUrl]];  
 
-## 备注
-1、可将.js代码放在.m中，省去读取文件。
 
