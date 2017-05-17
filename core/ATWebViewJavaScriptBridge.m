@@ -10,6 +10,7 @@
 #import "ATHttpUtils.h"
 #import "NSDictionary+JSONSafeGet.h"
 
+NSString * const ATWebViewJavaScriptBridgeJSCode = @";(function(){if(window.appJavaScriptBridge){return;};window.appJavaScriptBridge=new Object();var callNative=function(url){var iframe=document.createElement('iframe');iframe.style.display='none';iframe.setAttribute('src',url);document.documentElement.appendChild(iframe);iframe.parentNode.removeChild(iframe);iframe=null;};window.appJavaScriptBridge.callNative=function(command,argument){var url='ATAppJavaScriptBridge://'+command+'/'+argument;callNative(url);};window.appJavaScriptBridge.callJavaScript=function(command,argument,callback){if(callback.length>0){var callbackFun=window.appJavaScriptBridge[callback];callbackFun(command,argument);}};||customJavaScriptCode||})();";
 #define CheckCurrentWebView(returnValue) \
     if (webView != _webView) { return returnValue; }
 
@@ -85,9 +86,6 @@
 
 - (void)insertAppServiceScript
 {
-    NSString *jsFile = [[NSBundle mainBundle] pathForResource:@"ATWebViewJavaScriptBridge" ofType:@"js"];
-    NSString *jsCode = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:nil];
-    if (jsCode) {
         [_webView stringByEvaluatingJavaScriptFromString:jsCode];
     }
 }
@@ -96,18 +94,6 @@
 {
     if ([[request.URL scheme] isEqualToString:[@"ATAppJavaScriptBridge" lowercaseString]]) {
         NSString *description = [ATHttpUtils urlDecode:[request.URL description]];
-        NSString *content = [description substringFromIndex:@"ATAppJavaScriptBridge://".length];
-        NSRange firstSlashRange = [content rangeOfString:@"/"];
-        NSString *command = [content substringToIndex:firstSlashRange.location];
-        NSString *argumentString = [content substringFromIndex:firstSlashRange.location + firstSlashRange.length];
-        NSDictionary *argument = [NSJSONSerialization JSONObjectWithData:[argumentString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-        NSString *callback = [argument stringSafeGet:@"callback"];
-        
-        for (id<ATWebViewJavaScriptBridgeAction> action in _actions) {
-            if ([command isEqualToString:[action command]]) {
-                [action actionWithArgument:argument callback:callback];
-            }
-        }
         return YES;
     }
     return NO;

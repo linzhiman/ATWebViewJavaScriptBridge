@@ -4,7 +4,7 @@
     <script>
     function GetSomethingCallback(command, argument) {
         var jsonString = JSON.stringify(argument);
-        alert(command + ':' + jsonString);
+        document.getElementById("GetSomething").innerHTML = command + ':' + jsonString;
     }
     
     function GetSomething() {
@@ -13,6 +13,20 @@
         var argument = {'test':123456789,'callback':'GetSomethingCallback'}
         var jsonString = JSON.stringify(argument);
         window.appJavaScriptBridge.callNative('GetSomething', jsonString);
+    }
+    
+    function UnknownCallCallback(command, argument) {
+        var jsonString = JSON.stringify(argument);
+        if (command == 'UnknownCall') {
+            document.getElementById("UnknownCall").innerHTML = command + ':' + jsonString;
+        }
+    }
+    
+    function UnknownCall() {
+        window.appJavaScriptBridge.UnknownCallCallback = UnknownCallCallback;
+        var argument = {'callback':'UnknownCallCallback'};
+        var jsonString = JSON.stringify(argument);
+        window.appJavaScriptBridge.callNative('UnknownCall', jsonString);
     }
     
     </script>
@@ -33,5 +47,9 @@
 </head>
 <body>
     <button type="button" onclick="GetSomething()">GetSomething</button>
+    <p id="GetSomething"></p>
+    
+    <button type="button" onclick="UnknownCall()">UnknownCall</button>
+    <p id="UnknownCall"></p>
 </body>
 </html>

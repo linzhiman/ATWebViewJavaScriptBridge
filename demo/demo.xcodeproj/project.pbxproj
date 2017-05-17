@@ -15,7 +15,6 @@
 		DC6578871CAD0C1100679FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6578861CAD0C1100679FD3 /* Assets.xcassets */; };
 		DC65788A1CAD0C1100679FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6578881CAD0C1100679FD3 /* LaunchScreen.storyboard */; };
 		DC6578961CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.html in Resources */ = {isa = PBXBuildFile; fileRef = DC6578931CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.html */; };
-		DC6578971CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = DC6578941CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.js */; };
 		DC6578981CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6578951CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.m */; };
 		DC65789B1CAD12E200679FD3 /* ATHttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC65789A1CAD12E200679FD3 /* ATHttpUtils.m */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		DC65788B1CAD0C1100679FD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6578921CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATWebViewJavaScriptBridge.h; sourceTree = "<group>"; };
 		DC6578931CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ATWebViewJavaScriptBridge.html; sourceTree = "<group>"; };
-		DC6578941CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ATWebViewJavaScriptBridge.js; sourceTree = "<group>"; };
 		DC6578951CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATWebViewJavaScriptBridge.m; sourceTree = "<group>"; };
 		DC6578991CAD12E200679FD3 /* ATHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATHttpUtils.h; sourceTree = "<group>"; };
 		DC65789A1CAD12E200679FD3 /* ATHttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATHttpUtils.m; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				DC65789A1CAD12E200679FD3 /* ATHttpUtils.m */,
 				DC6578921CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.h */,
 				DC6578931CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.html */,
-				DC6578941CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.js */,
 				DC6578951CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.m */,
 				DC394C6D1E70129F00D24CEF /* NSDictionary+JSONSafeGet.h */,
 				DC394C6E1E70129F00D24CEF /* NSDictionary+JSONSafeGet.m */,
@@ -168,7 +165,6 @@
 			files = (
 				DC65788A1CAD0C1100679FD3 /* LaunchScreen.storyboard in Resources */,
 				DC6578871CAD0C1100679FD3 /* Assets.xcassets in Resources */,
-				DC6578971CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.js in Resources */,
 				DC6578851CAD0C1100679FD3 /* Main.storyboard in Resources */,
 				DC6578961CAD0C9400679FD3 /* ATWebViewJavaScriptBridge.html in Resources */,
 			);
