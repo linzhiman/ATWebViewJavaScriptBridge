@@ -14,6 +14,7 @@
  2、页面JavaScript调用Native
     window.appJavaScriptBridge.callNative(command, argument);
     如果需要App回调，需将callback函数挂在window.appJavaScriptBridge，函数名自定义，如callbackName，并在argument中添加字段'callback':'callbackName'；
+    其中callback函数定义为 function callbackName(command, argument)；
  3、Native调用页面JavaScript
     window.appJavaScriptBridge.callbackName(command, argument);
  4、参数说明
@@ -39,6 +40,7 @@
 
 - (void)registerAction:(id<ATWebViewJavaScriptBridgeAction>)action;
 - (void)callJavaScriptWithCommand:(NSString *)command argument:(NSDictionary *)argument callback:(NSString *)callback;
+- (void)evaluateJavaScript:(NSString *)javaScriptCode;
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(id<UIWebViewDelegate>)webViewDelegate;
 
@@ -47,6 +49,7 @@
 @interface ATWebViewJavaScriptBridgeTestAction : NSObject<ATWebViewJavaScriptBridgeAction>
 
 @property (nonatomic, weak) ATWebViewJavaScriptBridge *bridge;
+@property (nonatomic, strong) NSString *customJavaScriptCode;
 
 + (NSURL *)testUrl;
 
